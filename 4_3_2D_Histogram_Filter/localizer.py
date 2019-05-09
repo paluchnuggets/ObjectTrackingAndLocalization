@@ -2,6 +2,13 @@
 from helpers import normalize, blur
 
 def initialize_beliefs(grid):
+    """
+    Initialize 2d array of shape (nxn) and fill it with initial beliefs.
+    Initial belief is calculated as an ratio (1.0 / number of all cells in a world)
+    
+    Parameters:
+        grid - 2d array of shape (nxn) representing the world
+    """
     height = len(grid)
     width = len(grid[0])
     area = height * width
