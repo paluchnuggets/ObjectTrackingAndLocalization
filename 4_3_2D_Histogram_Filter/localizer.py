@@ -23,11 +23,18 @@ def initialize_beliefs(grid):
 
 def sense(color, grid, beliefs, p_hit, p_miss):
     new_beliefs = []
-
-    #
-    # TODO - implement this in part 2
-    #
-
+    norm_val = 0
+    for i, arr in enumerate(grid):
+        row_belief = []
+        for j, elem in enumerate(arr):
+            if elem == color:
+                new_elem = beliefs[i][j] * p_hit
+            else:
+                new_elem = beliefs[i][j] * p_miss
+            row_belief.append(new_elem)
+        norm_val += sum(row_belief)
+        new_beliefs.append(row_belief)
+    new_beliefs = [[(elem / norm_val) for elem in arr] for arr in new_beliefs ]
     return new_beliefs
 
 def move(dy, dx, beliefs, blurring):

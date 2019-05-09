@@ -51,8 +51,7 @@ class Simulation(object):
     def sense(self):
         color = self.get_observed_color()
         beliefs = deepcopy(self.beliefs)
-        new_beliefs = localizer.sense(
-            color, self.grid, beliefs, self.p_hit, self.p_miss)
+        new_beliefs = localizer.sense(color, self.grid, beliefs, self.p_hit, self.p_miss)
         if not new_beliefs or len(new_beliefs) == 0:
             print("NOTE! The robot doesn't have a working sense function at this point.")
             self.beliefs = beliefs
