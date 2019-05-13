@@ -14,6 +14,8 @@ class Color(object):
     def __init__(self, r, g, b):
         # Setting the r value
         self.r = r
+        self.g = g
+        self.b = b
         
         ## TODO: Set the other two color variables g and b
         
@@ -28,8 +30,10 @@ class Color(object):
         ## TODO: Write a string representation for the color
         ## ex. "rgb = [self.r, self.g, self.b]"
         ## Right now this returns an empty string
-        string = ''
+        string = f"rgb: {self.r}, {self.g}, {self.b}"
         
         return string
     
-    
+    def __add__(self, other):
+        return Color(self.r + other.r, self.g + other.g, self.b + other.b)
+        
